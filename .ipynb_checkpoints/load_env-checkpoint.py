@@ -29,12 +29,14 @@ class enviroment():
         # Click login
         while True:
             if login_button.is_displayed():
+                text = login_button.get_attribute('innerText')
                 login_button.click()
                 time.sleep(8)
                 break
 
 
     def state(self):
+
 
         x = float(self.driver.find_element(by=By.ID,value = 'x-range').get_attribute('innerText')[:-1:])
         y = float(self.driver.find_element(by=By.ID,value = 'y-range').get_attribute('innerText')[:-1:])
@@ -44,27 +46,19 @@ class enviroment():
         roll = float(self.driver.find_element(by=By.ID,value = 'roll').find_element(by=By.CLASS_NAME,value = 'error').get_attribute('innerText')[:-1:])
         pitch = float(self.driver.find_element(by=By.ID,value = 'pitch').find_element(by=By.CLASS_NAME,value = 'error').get_attribute('innerText')[:-1:])
 
-        yaw_v = float(self.driver.find_element(by=By.ID,value = 'yaw').find_element(by=By.CLASS_NAME,value = 'rate').get_attribute('innerText')[:-3:]) 
-        roll_v = float(self.driver.find_element(by=By.ID,value = 'roll').find_element(by=By.CLASS_NAME,value = 'rate').get_attribute('innerText')[:-3:])
-        pitch_v = float(self.driver.find_element(by=By.ID,value = 'pitch').find_element(by=By.CLASS_NAME,value = 'rate').get_attribute('innerText')[:-3:])
+        yaw_v = 0
+        roll_v = 0
+        pitch_v = 0
 
-        xyz_range = float(self.driver.find_element(by=By.ID,value = 'range').find_element(by=By.CLASS_NAME,value = 'rate').get_attribute('innerText')[:-1:]) 
-        xyz_rate = float(self.driver.find_element(by=By.ID,value = 'rate').find_element(by=By.CLASS_NAME,value = 'rate').get_attribute('innerText')[:-3:]) 
+        xyz_range = 0
+        xyz_rate = 0
 
         return [x,y,z,xyz_range,xyz_rate,yaw,roll,pitch,yaw_v,roll_v,pitch_v]
 
     def reset(self):
-        restart_button = self.driver.find_element(by=By.ID,value = 'option-restart')
+        restart_button = driver.find_element(by=By.ID,value = 'option-restart')
         restart_button.click()
         return 
-
-    def fail(self):
-        fail_button = self.driver.find_element(by=By.ID,value = 'fail-button')
-        return fail_button.is_displayed()
-
-    def success(self):
-        success_button = self.driver.find_element(by=By.ID,value = 'success-button')
-        return success_button.is_displayed()
         
     def action(self):
 
