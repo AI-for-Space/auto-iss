@@ -16,3 +16,17 @@ En el repositorio se pueden encontrar dos carpetas correspondientes a los dos mo
   
  Todos los agentes son entrenados con la técnica de aprendizaje por refuerzo Phasic Policy Gradient (PPG)
 
+
+
+https://user-images.githubusercontent.com/61092361/188248518-1efb2faa-d3b3-451e-afdb-6c628319aaf5.mp4
+
+
+
+https://user-images.githubusercontent.com/61092361/188248687-bd31f6b7-b7e3-41c3-b883-61e151fe124f.mp4
+
+
+
+Los siguientes videos se pueden ver con mayor calidad en:
+
+- https://youtu.be/r-VbQzVu3VQ
+- https://youtu.be/Uro4ii1J7p8
