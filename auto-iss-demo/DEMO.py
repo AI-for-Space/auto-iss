@@ -343,70 +343,6 @@ class enviroment():
 
         return [x,y,z]
 
-    def reset(self):
-        restart_button = self.driver.find_element(by=By.ID,value = 'option-restart')
-        restart_button.click()
-        time.sleep(7)
-        return 
-
-    def restart(self):
-        if self.success():
-            restart_button = self.driver.find_element(by=By.ID,value = 'success-button')
-        else:
-            restart_button = self.driver.find_element(by=By.ID,value = 'fail-button')
-        time.sleep(2)
-        restart_button.click()
-        time.sleep(8)
-        return 
-
-    def fail(self):
-        fail_button = self.driver.find_element(by=By.ID,value = 'fail-button')
-        if self.HUD_available() == False:
-            if fail_button.is_displayed() == True:
-                return True
-        else:
-            return False
-
-    def success(self):
-        success_button = self.driver.find_element(by=By.ID,value = 'success-button')
-        if self.HUD_available() == False:
-            if success_button.is_displayed() == True:
-                return True
-        else:
-            return False
-        
-    def action(self,action_number):
-        if action_number == 0:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-left-button')
-        if action_number == 1:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-right-button')
-        if action_number == 2:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-up-button')
-        if  action_number == 3:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-down-button')
-        if action_number == 4:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-forward-button')
-        if action_number == 5:
-            action_button = self.driver.find_element(by=By.ID,value = 'translate-backward-button')
-        if action_number == 6:
-            action_button = self.driver.find_element(by=By.ID,value = 'yaw-left-button')
-        if action_number == 7:
-            action_button = self.driver.find_element(by=By.ID,value = 'yaw-right-button')
-        if action_number == 8:
-            action_button = self.driver.find_element(by=By.ID,value = 'pitch-up-button')
-        if action_number == 9:
-            action_button = self.driver.find_element(by=By.ID,value = 'pitch-down-button')
-        if action_number == 10:
-            action_button = self.driver.find_element(by=By.ID,value = 'roll-left-button')
-        if action_number == 11:
-            action_button = self.driver.find_element(by=By.ID,value = 'roll-right-button')
-        if action_number == 12:
-            return       
-
-        action_button.click()
-
-        return
-
     def close(self):
         self.driver.close()
 
@@ -679,6 +615,9 @@ class enviroment():
         return  
                 
     def perform_docking(self):
+        
+        self.perform_movement([0,0,0,0,0])
+        self.calibrate_Z()
 
         new_state = preprocess_action(self.movement_state())
         new_x = new_state[0]
@@ -759,8 +698,6 @@ def play_demo(rotational_agent,movement_agent,env_name = 5555):
 
                 next_state,done = env.generate_rotations(action,next_state)
                 if done:
-                    print('Rotations')
-                    print(rotations)
                     break
 
         env.perform_rotation(rotations)
@@ -793,8 +730,6 @@ def play_demo(rotational_agent,movement_agent,env_name = 5555):
 
                 if done:
                     if next_state[0] == 6 and next_state[1] == 0 and next_state[2] == 0:
-                        print('Movement: ')
-                        print(movement)
                         break
                     else:
                         done = False
@@ -805,9 +740,6 @@ def play_demo(rotational_agent,movement_agent,env_name = 5555):
         env.perform_movement(movement)
 
     # Perform docking manouver
-    env.perform_movement([0,0,0,0,0])
-    env.calibrate_Z()
     env.perform_docking()
-        
-    while True:
-        print(1,end = '\r')
+       
+    env.close
