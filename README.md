@@ -1,11 +1,5 @@
 # Aprendizaje por refuerzo para acoplar de forma autónoma una nave espacial con la Estación Espacial Internacional
 
-<div align=center>
-  <a href="https://www.universidadviu.com/es/"><img src="https://user-images.githubusercontent.com/15159632/155946766-9bf49086-a07f-473c-a703-65c1cc739c9c.png" alt="VIU" title="VIU" hspace="30" height="96px" /></a>
-</div>
-
-<br/>
-
 Author: Pérez Torregrosa, Daniel ([@DanielTorregrosa](https://github.com/DanielTorregrosa))
 
 Advisor: Guzman Alvarez, Cesar Augusto ([@cguz](https://github.com/cguz)) 
