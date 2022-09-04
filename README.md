@@ -1,6 +1,32 @@
+# Aprendizaje por refuerzo para acoplar de forma autónoma una nave espacial con la Estación Espacial Internacional
+
+<div align=center>
+  <a href="https://www.universidadviu.com/es/"><img src="https://user-images.githubusercontent.com/15159632/155946766-9bf49086-a07f-473c-a703-65c1cc739c9c.png" alt="VIU" title="VIU" hspace="30" height="96px" /></a>
+</div>
+
+<br/>
+
+Author: Pérez Torregrosa, Daniel ([@DanielTorregrosa](https://github.com/DanielTorregrosa))
+
+Advisor: Guzman Alvarez, Cesar Augusto ([@cguz](https://github.com/cguz)) 
+
+---
+
+## Indice
+
+- [Introducción](#introduccion)
+- [Contenido](#contenido)
+
 # Introducción
 
-En este repositorio se encuentra el trabajo de fin de master "Aprendizaje por refuerzo para acoplar de forma autónoma una nave espacial con la Estación Espacial Internacional"
+Este repositorio forma parte del trabajo de fin de master "Aprendizaje por refuerzo para acoplar de forma autónoma una nave espacial con la Estación Espacial Internacional" que tiene como propósito utilizar técnicas de aprendizaje por refuerzo o ‘Reinforcement Learning' para el control autónomo de seis grados de libertad del sistema de acoplamiento de la nave Dragon2 de SpaceX a la Estación Espacial Internacional.  Para el entrenamiento y test del algoritmo se ha utilizado un código Python capaz de conectarse con el simulador oficial de la nave que se encuentra en la siguiente dirección: https://iss-sim.spacex.com
+
+Se ha realizado un estudio de distintos papers dedicados a tareas de acoplamiento de naves y satélites, siendo el algoritmo Proximal Policy Optimization (PPO) el más utilizado. Aun así, se ha decidido llevar a cabo el trabajo con una técnica novedosa que asegura tener mejores resultados que PPO, el algoritmo Phasic Policy Gradient (PPG).
+
+Debido a la limitación de recursos computacionales y los pocos datos que proporciona el simulador se ha simplificado el problema utilizando un entorno matemático con estados y movimientos discretos para entrenar dos agentes, uno encargado de la rotación de la nave y otro de su movimiento, para posteriormente ser probados en el simulador oficial.
+
+Se ha conseguido una solución que posee un éxito del 93.8% en la tarea de reorientación y un 65% en la de movimiento. Aunque el porcentaje de éxito no es elevado, los resultados confirman que el algoritmo seleccionado, PPG, ha sido desarrollado e implementado correctamente y es capaz de aprender.
+
 
 # Contenido
 
